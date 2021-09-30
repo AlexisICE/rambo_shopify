@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>{{ page_title }}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  {{ content_for_header }}
+  <!-- Header hook for plugins -->
+  {{ 'home.css' | asset_url | stylesheet_tag }}
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+  {{ 'bootstrap.min.css' | asset_url | stylesheet_tag }}
+  {{ 'font-awesome.min.css' | asset_url | stylesheet_tag }}
+
+</head>
+
+<body>
+  <header>
+    {% render 'header' %}
+  </header>
+
+    {{ content_for_layout }}
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+  <script>
+    var section = 0;
+    function selectMenu(section) {
+      switch (section) {
+        case 1:
+          $(".custom-tab").css("display", "block");
+          $(".ctas-cont div").removeClass("active");
+          $(".ctas-cont div:first-child").addClass("active");
+          $("footer").css("margin-top", "-120px");
+          break;
+        case 2:
+          $(".custom-tab").css("display", "none");
+          $(".flowers").css("display", "block");
+          $(".ctas-cont div").removeClass("active");
+          $(".ctas-cont div:nth-child(2)").addClass("active");
+          $("footer").css("margin-top", "0");
+          break;
+        case 3:
+          $(".custom-tab").css("display", "none");
+          $(".rolls").css("display", "block");
+          $(".ctas-cont div").removeClass("active");
+          $(".ctas-cont div:nth-child(3)").addClass("active");
+          $("footer").css("margin-top", "0");
+          break;
+        case 4:
+          $(".custom-tab").css("display", "none");
+          $(".bears").css("display", "block");
+          $(".ctas-cont div").removeClass("active");
+          $(".ctas-cont div:nth-child(4)").addClass("active");
+          $("footer").css("margin-top", "-120px");
+          break;
+      }
+    }
+
+    function flowersMenu(section) {
+      switch (section) {
+        case 1:
+          if ($(".flowers .cta-tabs div:first-child.active")[0]) {
+            $(".flowers-list >div").css("display", "none");
+            $(".flowers .cont-bg-foo").css("display", "block");
+            $(".flowers .cta-tabs div").removeClass("active");
+          }
+          else {
+            $(".flowers-list >div").css("display", "none");
+            $(".zkittlez").css("display", "block");
+            $(".flowers .cta-tabs div").removeClass("active");
+            $(".flowers .cta-tabs div:first-child").addClass("active");
+            $(".flowers .cont-bg-foo").css("display", "none");
+            $(".zkittlez").css("bottom", "-100px");
+          }
+
+
+          break;
+        case 2:
+          if ($(".flowers .cta-tabs div:nth-child(2).active")[0]) {
+            $(".flowers-list >div").css("display", "none");
+            $(".flowers .cont-bg-foo").css("display", "block");
+            $(".flowers .cta-tabs div").removeClass("active");
+          }
+          else {
+            $(".flowers-list >div").css("display", "none");
+            $(".gorilla").css("display", "block");
+            $(".flowers .cta-tabs div").removeClass("active");
+            $(".flowers .cta-tabs div:nth-child(2)").addClass("active");
+            $(".flowers .cont-bg-foo").css("display", "none");
+            $(".gorilla").css("bottom", "-100px");
+          }
+          break;
+        case 3:
+          if ($(".flowers .cta-tabs div:last-child.active")[0]) {
+            $(".flowers-list >div").css("display", "none");
+            $(".flowers .cont-bg-foo").css("display", "block");
+            $(".flowers .cta-tabs div").removeClass("active");
+          }
+          else {
+            $(".flowers-list >div").css("display", "none");
+            $(".gelato").css("display", "block");
+            $(".flowers .cta-tabs div").removeClass("active");
+            $(".flowers .cta-tabs div:last-child").addClass("active");
+            $(".flowers .cont-bg-foo").css("display", "none");
+            $(".gelato").css("bottom", "-100px");
+          }
+
+          break;
+      }
+    }
+
+    function rollsMenu(section) {
+      switch (section) {
+        case 1:
+          if ($(".rolls .cta-tabs button:first-child.active")[0]) {
+            $(".rolls-list >div").css("display", "none");
+            $(".rolls .cont-bg-foo").css("display", "block");
+            $(".rolls .cta-tabs button").removeClass("active");
+          }
+          else {
+            $(".rolls-list >div").css("display", "none");
+            $(".cbd").css("display", "block");
+            $(".rolls .cta-tabs button").removeClass("active");
+            $(".rolls .cta-tabs button:first-child").addClass("active");
+            $(".rolls .cont-bg-foo").css("display", "none");
+            $(".cbd").css("bottom", "-100px");
+          }
+          break;
+        case 2:
+          if ($(".rolls .cta-tabs button:nth-child(2).active")[0]) {
+            $(".rolls-list >div").css("display", "none");
+            $(".rolls .cont-bg-foo").css("display", "block");
+            $(".rolls .cta-tabs button").removeClass("active");
+          }
+          else {
+            $(".rolls-list >div").css("display", "none");
+            $(".cbg").css("display", "block");
+            $(".rolls .cta-tabs button").removeClass("active");
+            $(".rolls .cta-tabs button:nth-child(2)").addClass("active");
+            $(".rolls .cont-bg-foo").css("display", "none");
+            $(".cbg").css("bottom", "-100px");
+          }
+
+          break;
+      }
+    }
+    function toUp() {
+      console.log("hola");
+      $("html, body").animate({
+        scrollTop: 0
+      }, 1000);
+    }
+    $(window).scroll(function (event) {
+      if ($(window).scrollTop() > 5) {
+        $(".banner-cont").css("display", "none");
+      } else {
+        $(".banner-cont").css("display", "block");
+      }
+    });
+
+  </script>
+</body>
+
+</html>

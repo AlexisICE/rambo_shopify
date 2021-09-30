@@ -1,0 +1,53 @@
+<body class="flower-shop">
+    <div class="up-pag">
+        <i onclick="toUp()" class="fa fa-angle-up" aria-hidden="true"></i>
+      </div>
+      <section class="flores-pg">
+        <div class="main-cont container">
+            <div class="hero-text">
+                <div class="title-img">
+                    <img src="" alt="Flores">
+                </div>
+                <p>{{ collection.description}}</p>
+            </div>
+            <div class="product-cont">
+                <div class="filter-area">
+            <div class="form-group">
+              <div class="cont-select">
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option selected  disabled>ORDENAR POR:</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="ico-cont">
+                <i class="fa fa-angle-down" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+                <div class="product-area row">
+                    {% for product in collection.products %}
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 prod-1"> 
+                        <div class="product-cta">
+                            <a href="../detalle">
+                                <div class="img-wrapper">
+                                    <img  src='{{ product.featured_image | img_url: '2048x' }}'>
+                                </div>
+                                <div class="text-wrapper">
+                                    <p> {{product.title}}
+                                        <span></span>
+                                    </p>
+                                    <h3 class="price-t">{{product.price | money}}</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="footer-svg"><img src="../../assets/img/tienda/flores-svg.png" alt="SVG"></div>
+      </section>
+</body>
